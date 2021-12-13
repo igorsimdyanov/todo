@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_09_181300) do
+ActiveRecord::Schema.define(version: 2021_12_13_161957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", comment: "Список дел", force: :cascade do |t|
+    t.string "name", comment: "Заголовок"
+    t.text "content", comment: "Детальное описание"
+    t.boolean "done", default: false, comment: "Статус: завершено (true), или нет (false)"
+    t.datetime "finished_at", comment: "Дата и время завершения дела"
+    t.bigint "user_id", comment: "Внешний ключ для связи с таблицей users"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "items", comment: "Подпункты дела", force: :cascade do |t|
+    t.string "name", comment: "Заголовок"
+    t.boolean "done", default: false, comment: "Статус: завершено (true), или нет (false)"
+    t.datetime "finished_at", comment: "Дата и время завершения подпункта"
+    t.bigint "event_id", comment: "Внешний ключ для связи с таблицей events"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_items_on_event_id"
+  end
+
+  create_table "roles", comment: "Роли пользователя", force: :cascade do |t|
+    t.string "name", comment: "Заголовок"
+    t.string "code", comment: "Псевдоним"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", comment: "Пользователи системы", force: :cascade do |t|
     t.string "name", comment: "Имя пользователя"
@@ -21,8 +49,12 @@ ActiveRecord::Schema.define(version: 2021_12_09_181300) do
     t.boolean "active", default: true, comment: "пользователь активен (true) или забанен (false)"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role_id", comment: "Роль пользователя"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "events", "users"
+  add_foreign_key "items", "events"
+  add_foreign_key "users", "roles"
 end
