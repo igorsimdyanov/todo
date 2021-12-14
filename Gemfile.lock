@@ -68,6 +68,7 @@ GEM
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     erubi (1.10.0)
+    ffaker (2.20.0)
     ffi (1.15.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -183,6 +184,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
+  ffaker
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
@@ -191,7 +193,6 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   sass-rails (>= 6)
   slim-rails
-  tzinfo-data
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
 
