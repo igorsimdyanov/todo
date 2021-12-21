@@ -1,0 +1,25 @@
+p#notice = notice
+
+p
+  strong Name:
+  =< @event.name
+
+p
+  strong Content:
+  =< @event.content
+
+p
+  strong Done:
+  =< @event.done
+
+p
+  strong Items:
+  table
+    - @event.items.order(created_at: :desc).each_with_index do |item, i|
+      tr
+        td = i + 1
+        td = item.name
+
+=> link_to 'Edit', edit_event_path(@event)
+'|
+=< link_to 'Back', events_path
