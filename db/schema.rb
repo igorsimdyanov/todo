@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_185257) do
+ActiveRecord::Schema.define(version: 2021_12_23_164420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 2021_12_16_185257) do
     t.string "code", comment: "Псевдоним"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "seos", comment: "Теги для поисковых ситем", force: :cascade do |t|
+    t.string "title", comment: "Тег title"
+    t.string "description", comment: "Тег desription"
+    t.string "keywords", comment: "Тег keywords"
+    t.string "promoted_type", null: false
+    t.bigint "promoted_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["promoted_type", "promoted_id"], name: "index_seos_on_promoted"
   end
 
   create_table "users", comment: "Пользователи системы", force: :cascade do |t|

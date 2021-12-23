@@ -25,6 +25,8 @@ class User < ApplicationRecord
            source: :commentable,
            source_type: :User
 
+  has_one :seo, as: :promoted
+
   private
 
   def normalize_email

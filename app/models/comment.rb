@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
 
   after_touch :log_comment
+  has_one :seo, as: :promoted
 
   private
 
