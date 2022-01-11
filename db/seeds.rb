@@ -45,4 +45,17 @@ hash_comments = 200.times.map do
   }
 end
 
-Comment.create! hash_comments
+comments = Comment.create! hash_comments
+
+hash_seos = 10.times.map do
+  promoted = (rand(2) == 1 ? comments : users).sample
+  {
+    title: FFaker::Lorem.sentence(1),
+    description: FFaker::Lorem.sentence(10),
+    keywords: FFaker::Lorem.sentence(12),
+    promoted_id: promoted.id,
+    promoted_type: promoted.class.to_s
+  }
+end
+
+Seo.create! hash_seos
