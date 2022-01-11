@@ -45,7 +45,7 @@ hash_comments = 200.times.map do
   }
 end
 
-Comment.create! hash_comments
+comments = Comment.create! hash_comments
 
 hash_seos = 10.times.map do
   promoted = (rand(2) == 1 ? comments : users).sample

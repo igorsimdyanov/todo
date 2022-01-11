@@ -1,4 +1,4 @@
-class Seo < ActiveRecord::Migration[6.1]
+class CreateSeo < ActiveRecord::Migration[6.1]
   def change
     create_table :seos, comment: 'Теги для поисковых ситем' do |t|
       t.string :title, comment: 'Тег title'
