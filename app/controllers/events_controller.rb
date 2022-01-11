@@ -1,13 +1,15 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /events or /events.json
   def index
-    @events = Event.includes(:items).page(params[:page]).per(3)
+    @events = policy_scope(Event).includes(:items).page(params[:page]).per(3)
   end
 
   # GET /events/1 or /events/1.json
   def show
+    authorize @event
   end
 
   # GET /events/new
@@ -17,6 +19,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    authorize @event
   end
 
   # POST /events or /events.json
@@ -36,6 +39,7 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
+    authorize @event
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: "Event was successfully updated." }
@@ -49,6 +53,7 @@ class EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    authorize @event
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: "Event was successfully destroyed." }

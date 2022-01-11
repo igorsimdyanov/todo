@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :trackable,
+         :recoverable, :rememberable, :validatable
+
   before_destroy :log_before_destroy
   after_destroy :log_after_destroy
   before_validation :normalize_name, on: :create
@@ -24,6 +29,12 @@ class User < ApplicationRecord
            through: :comments,
            source: :commentable,
            source_type: :User
+
+  Role.find_each do |role|
+    define_method "#{role.code}?" do
+      role_id == role.id
+    end
+  end
 
   private
 

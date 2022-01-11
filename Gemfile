@@ -12,6 +12,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'slim-rails'
 gem 'kaminari'
+gem 'devise'
+gem 'devise-i18n'
+gem 'pundit'
 
 group :development, :test do
   gem 'ffaker'
@@ -20,6 +23,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'letter_opener'
 end
 
 group :development do
