@@ -2,12 +2,12 @@ header
   ul
     - if user_signed_in?
       li
-        span Hello, #{current_user.email}
+        span = t('label.hello') % current_user.name
       li
         span
-          = link_to 'Log out', destroy_user_session_path, method: :delete
+          = link_to t('label.log_out'), destroy_user_session_path, method: :delete
     - else
       li
-        = link_to 'Log in', new_user_session_path
+        = link_to t('label.log_in'), new_user_session_path
       li
-        = link_to 'Register', new_user_registration_path
+        = link_to t('label.registration'), new_user_registration_path
