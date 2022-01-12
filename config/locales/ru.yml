@@ -1,0 +1,21 @@
+ru:
+  label:
+    log_in: Вход
+    log_out: Выход
+    hello: Привет, %s
+    registration: Регистрация
+  activerecord:
+    errors:
+      messages:
+        blank: обязательно для заполнения
+        too_short: слишком коротко
+
+      models:
+        user: Пользователи
+        post: Сообщения
+      attributes:
+        user:
+          password:              Пароль
+          password_confirmation: Подтверждение
+          email:                 Email
+          name:                  Имя пользователя
