@@ -3,6 +3,7 @@ ru:
     log_in: Вход
     log_out: Выход
     hello: Привет, %s
+    edit_profile: изменить профиль
     registration: Регистрация
   activerecord:
     errors:
