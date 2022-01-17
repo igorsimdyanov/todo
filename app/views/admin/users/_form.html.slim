@@ -14,12 +14,18 @@
     = f.label :email
     = f.text_field :email
 
-  .field
-    = f.label :password
-    = f.password_field :password
+  - if @admin_user.id != current_user.id
+    .field
+      = f.label :role
+      = f.collection_select :role_id, Role.order(:name), :id, :name
 
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
+  - if action_name == 'new'
+    .field
+      = f.label :password
+      = f.password_field :password
+
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
 
   .actions = f.submit
