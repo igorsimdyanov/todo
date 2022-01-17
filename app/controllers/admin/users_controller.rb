@@ -1,7 +1,5 @@
 class Admin::UsersController < Admin::ApplicationController
   before_action :set_admin_user, only: %i[ show edit update destroy ]
-  # after_action :verify_authorized, except: :index
-  # after_action :verify_policy_scoped, only: :index
 
   # GET /admin/users or /admin/users.json
   def index
@@ -68,13 +66,12 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_user
-      @admin_user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def admin_user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role_id)
-    end
+  def set_admin_user
+    @admin_user = User.find(params[:id])
+  end
+
+  def admin_user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :role_id)
+  end
 end
