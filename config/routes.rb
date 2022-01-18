@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'users#index'
     resources :users
+    resources :roles
   end
   devise_for :users
   resources :events do 

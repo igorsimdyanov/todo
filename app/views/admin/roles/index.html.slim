@@ -1,0 +1,21 @@
+h1 Listing admin_roles
+
+table
+  thead
+    tr
+      th
+      th
+      th
+      th
+
+  tbody
+    - @admin_roles.each do |role|
+      tr
+        td = role.name
+        td = link_to 'Show', admin_role_path(role)
+        td = link_to 'Edit', edit_admin_role_path(role)
+        td = link_to 'Destroy', admin_role_path(role), data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Role', new_admin_role_path
