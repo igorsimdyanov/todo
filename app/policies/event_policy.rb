@@ -1,14 +1,18 @@
 class EventPolicy < ApplicationPolicy
+  def index?
+    user
+  end
+
   def show?
-    record.user_id == user.id || user.admin?
+    record.user_id == user&.id || user&.admin?
   end
 
   def update?
-    record.user_id == user.id || user.admin?
+    record.user_id == user&.id || user&.admin?
   end
 
   def destroy?
-    record.user_id == user.id || user.admin?
+    record.user_id == user&.id || user&.admin?
   end
 
   class Scope < Scope

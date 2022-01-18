@@ -4,5 +4,7 @@ FactoryBot.define do
     sequence(:email) { |n| "person#{n}@example.com" }
     active { true }
     role { create(:role) }
+    password { "admin@example.com" }
+    password_confirmation { "admin@example.com" }
   end
 end
