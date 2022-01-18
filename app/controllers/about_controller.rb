@@ -1,7 +1,9 @@
 class AboutController < ApplicationController
   before_action :log_start, :log_params, :log_fihish, only: :index
 
-  def index; end
+  def index
+    @content = 'Sint iusto nulla doloremque quaerat ea voluptate harum. dfdslfsdlfsd sdfkdslf jsdl fsdf sdf ds fsd fds fds fsd fsd fsd'
+  end
 
   private
 

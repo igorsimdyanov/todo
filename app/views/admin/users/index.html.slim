@@ -1,6 +1,6 @@
 h1 Listing admin_users
 
-table
+table cellspacing=0
   thead
     tr
       th
@@ -12,7 +12,7 @@ table
 
   tbody
     - @admin_users.each do |user|
-      tr
+      tr style="background-color: #{ cycle('#ddd', '#fff') };"
         td = user.name
         td = user.email
         td = user.role.name

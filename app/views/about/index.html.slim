@@ -1,4 +1,23 @@
 h1
   | О нас
+p<> Содержимое параграфа
+p
+  a[href='/' title='Переход на главную страницу'] Главная страница #{ 2 + 2 }
+.left
+  p.text Содержимое параграфа
+  p.text Другой параграф
+p
+  = 2 + 2
+  == '&nbsp;'
+  = 2 + 2
+p
+  = current_date
+
+p
+  = highlight(@content, 'harum', highlighter: '<a href="/search?q=\1">\1</a>')
+p
+  = truncate(@content, length: 25)
+
+br
 p
   = link_to 'Главная страница', root_path
