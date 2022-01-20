@@ -1,23 +1,17 @@
 h1
-  | О нас
-p<> Содержимое параграфа
+  = t(:about)
+p<>
+  = t(:content)
 p
-  a[href='/' title='Переход на главную страницу'] Главная страница #{ 2 + 2 }
-.left
-  p.text Содержимое параграфа
-  p.text Другой параграф
+  = t(:current_date)
+  =< l Date.current
 p
-  = 2 + 2
-  == '&nbsp;'
-  = 2 + 2
+  =< session[:about_count]
+  =< t('activerecord.models.visit', count: session[:about_count])
 p
-  = current_date
-
+  = User.count
+  =< t('activerecord.models.user', count: User.count)
 p
-  = highlight(@content, 'harum', highlighter: '<a href="/search?q=\1">\1</a>')
-p
-  = truncate(@content, length: 25)
-
-br
-p
-  = link_to 'Главная страница', root_path
+  = link_to t(:main_page), root_path
+  - link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
+  =< link_to link_name, toggle_path, method: :post
