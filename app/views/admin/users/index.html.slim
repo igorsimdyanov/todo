@@ -20,6 +20,7 @@ table cellspacing=0
         td = link_to 'Edit', edit_admin_user_path(user)
         td = link_to 'Destroy', admin_user_path(user), data: { confirm: 'Are you sure?' }, method: :delete
 
-br
-
-= link_to 'New User', new_admin_user_path
+p
+  = link_to 'New User', new_admin_user_path
+p
+  = paginate @admin_users
