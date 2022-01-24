@@ -14,6 +14,8 @@ p
 p
   = list_tag(%w[first second third])
 p
+  = tag.img src: 'map.png', height: '200', border: '1'
+p
   = link_to t(:main_page), root_path
   - link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
   =< link_to link_name, toggle_path, method: :post
