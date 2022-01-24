@@ -19,7 +19,9 @@ gem 'pundit'
 
 group :development, :test do
   gem 'ffaker'
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
