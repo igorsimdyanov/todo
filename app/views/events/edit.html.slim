@@ -1,7 +1,10 @@
-h1 Editing event
+h1
+  = t(:edit_event)
 
 == render 'form'
 
-=> link_to 'Show', @event
+=> link_to t(:show), @event
 '|
-=< link_to 'Back', events_path
+=< link_to t(:bask), events_path
+'|
+==< render 'shared/language_switch'

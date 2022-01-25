@@ -10,6 +10,9 @@ ru:
   visits: Посещения
   events: Список дел
   new_event: Новое дело
+  edit_event: Редактирование события
+  show: Детальная страница
+  back: Назад
   label:
     log_in: Вход
     log_out: Выход
@@ -56,6 +59,16 @@ ru:
         few: посещения
         many: посещений
         other: посещение
+    attributes: &attributes
+      user:
+        password:              Пароль
+        password_confirmation: Подтверждение
+        email:                 Email
+        name:                  Имя пользователя
+      event:
+        name: Заголовок
+        content: Содержимое
+        done: Выполнено
     errors:
       messages:
         blank: обязательно для заполнения
@@ -65,8 +78,4 @@ ru:
         user: Пользователи
         post: Сообщения
       attributes:
-        user:
-          password:              Пароль
-          password_confirmation: Подтверждение
-          email:                 Email
-          name:                  Имя пользователя
+        <<: *attributes
