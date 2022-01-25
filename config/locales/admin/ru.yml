@@ -1,0 +1,30 @@
+ru:
+  activerecord:
+    models:
+      user:
+        zero: пользователей
+        one: пользователь
+        few: пользователя
+        many: пользователей
+        other: пользователей
+        accusative: пользователя
+        genitive: пользователь
+        dative: пользователю
+      event:
+        zero: событий
+        one: событие
+        few: события
+        many: событий
+        other: событий
+        accusative: события
+        genitive: событие
+        dative: событию
+      item:
+        zero: подпунктов
+        one: подпункт
+        few: подпункта
+        many: подпунктов
+        other: подпункты
+        accusative: подпункта
+        genitive: подпункт
+        dative: подпункту

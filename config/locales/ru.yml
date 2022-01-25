@@ -3,24 +3,6 @@ ru:
     formats:
       default:
         '%d.%m.%Y'
-  main_page: Главная страница
-  about: О нас
-  content: Содержимое параграфа
-  current_date: Текущая дата
-  visits: Посещения
-  events: Список дел
-  new_event: Новое дело
-  edit_event: Редактирование события
-  show: Детальная страница
-  back: Назад
-  label:
-    log_in: Вход
-    log_out: Выход
-    hello: Привет, %s
-    registration: Регистрация
-    index: Список
-    new: Создание
-    edit: Редактирование
   settings:
     str: Привет, мир!
     num: 42
@@ -42,58 +24,3 @@ ru:
       value: 2
   config:
     <<: *alias
-  activerecord:
-    models:
-      user:
-        zero: пользователей
-        one: пользователь
-        few: пользователя
-        many: пользователей
-        other: пользователей
-        accusative: пользователя
-        genitive: пользователь
-        dative: пользователю
-      event:
-        zero: событий
-        one: событие
-        few: события
-        many: событий
-        other: событий
-        accusative: события
-        genitive: событие
-        dative: событию
-      item:
-        zero: подпунктов
-        one: подпункт
-        few: подпункта
-        many: подпунктов
-        other: подпункты
-        accusative: подпункта
-        genitive: подпункт
-        dative: подпункту
-      visit:
-        zero: посещений
-        one: посещение
-        few: посещения
-        many: посещений
-        other: посещение
-    attributes: &attributes
-      user:
-        password:              Пароль
-        password_confirmation: Подтверждение
-        email:                 Email
-        name:                  Имя пользователя
-      event:
-        name: Заголовок
-        content: Содержимое
-        done: Выполнено
-    errors:
-      messages:
-        blank: обязательно для заполнения
-        too_short: слишком коротко
-
-      models:
-        user: Пользователи
-        post: Сообщения
-      attributes:
-        <<: *attributes
