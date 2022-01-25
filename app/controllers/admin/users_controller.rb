@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::ApplicationController
-  before_action :set_admin_user, only: %i[ show edit update destroy ]
+  before_action :set_admin_user, only: %i[ show edit update destroy toggle ]
   # after_action :verify_authorized, except: :index
   # after_action :verify_policy_scoped, only: :index
 
@@ -14,6 +14,13 @@ class Admin::UsersController < Admin::ApplicationController
 
   # GET /admin/users/1 or /admin/users/1.json
   def show
+  end
+
+  def toggle
+    authorize [:admin, @admin_user]
+    @admin_user.update_column(:active, !@admin_user.active)
+
+    respond_to { |format| format.json { head :no_content } }
   end
 
   # GET /admin/users/new
@@ -62,7 +69,6 @@ class Admin::UsersController < Admin::ApplicationController
     authorize [:admin, @admin_user]
     @admin_user.destroy
     respond_to do |format|
-      format.html { redirect_to admin_users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
   end
