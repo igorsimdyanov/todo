@@ -1,0 +1,19 @@
+ru:
+  main_page: Главная страница
+  about: О нас
+  content: Содержимое параграфа
+  current_date: Текущая дата
+  visits: Посещения
+  events: Список дел
+  new_event: Новое дело
+  edit_event: Редактирование события
+  show: Детальная страница
+  back: Назад
+  label:
+    log_in: Вход
+    log_out: Выход
+    hello: Привет, %s
+    registration: Регистрация
+    index: Список
+    new: Создание
+    edit: Редактирование

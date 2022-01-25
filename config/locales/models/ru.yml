@@ -1,0 +1,29 @@
+ru:
+  activerecord:
+    models:
+      visit:
+        zero: посещений
+        one: посещение
+        few: посещения
+        many: посещений
+        other: посещение
+    attributes: &attributes
+      user:
+        password:              Пароль
+        password_confirmation: Подтверждение
+        email:                 Email
+        name:                  Имя пользователя
+      event:
+        name: Заголовок
+        content: Содержимое
+        done: Выполнено
+    errors:
+      messages:
+        blank: обязательно для заполнения
+        too_short: слишком коротко
+
+      models:
+        user: Пользователи
+        post: Сообщения
+      attributes:
+        <<: *attributes

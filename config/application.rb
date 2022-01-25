@@ -19,6 +19,7 @@ module Todo
     config.i18n.default_locale = :ru
     config.time_zone = 'Moscow'
     config.i18n.load_path += Dir[Rails.root.join('vendor', 'locales', '**', '*.yml')]
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml')]
 
     config.generators do |g|
       g.org             :active_record

@@ -13,5 +13,4 @@ p
   =< t('activerecord.models.user', count: User.count)
 p
   = link_to t(:main_page), root_path
-  - link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
-  =< link_to link_name, toggle_path, method: :post
+  == render 'shared/language_switch'
