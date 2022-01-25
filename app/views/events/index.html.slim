@@ -1,4 +1,5 @@
-h1 Listing events
+h1
+  = t(:events)
 
 table
   thead
@@ -11,8 +12,9 @@ table
     = render partial: 'event', collection: @events
 
 p 
-  = link_to 'New Event', new_event_path
+  = link_to t(:new_event), new_event_path
 p
-  = link_to 'О нас', about_index_path
+  = link_to t(:about), about_index_path
+  == render 'shared/language_switch'
 p
   = paginate @events

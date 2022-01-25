@@ -8,6 +8,8 @@ ru:
   content: Содержимое параграфа
   current_date: Текущая дата
   visits: Посещения
+  events: Список дел
+  new_event: Новое дело
   label:
     log_in: Вход
     log_out: Выход

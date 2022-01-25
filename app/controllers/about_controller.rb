@@ -4,7 +4,6 @@ class AboutController < ApplicationController
   def index
     session[:about_count] ||= 0
     session[:about_count] += 1
-    I18n.locale = session[:locale] if I18n.available_locales.include? session[:locale]&.to_sym
   end
 
   private

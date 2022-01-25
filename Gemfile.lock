@@ -106,6 +106,9 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
+    kaminari-i18n (0.5.0)
+      kaminari
+      rails
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.7.0)
@@ -261,6 +264,7 @@ DEPENDENCIES
   ffaker
   jbuilder (~> 2.7)
   kaminari
+  kaminari-i18n
   letter_opener
   listen (~> 3.3)
   pg (~> 1.1)
