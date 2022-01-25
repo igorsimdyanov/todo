@@ -9,16 +9,10 @@ table cellspacing=0
       th
       th
       th
+      th
 
   tbody
-    - @admin_users.each do |user|
-      tr style="background-color: #{ cycle('#ddd', '#fff') };"
-        td = user.name
-        td = user.email
-        td = user.role.name
-        td = link_to 'Show', admin_user_path(user)
-        td = link_to 'Edit', edit_admin_user_path(user)
-        td = link_to 'Destroy', admin_user_path(user), data: { confirm: 'Are you sure?' }, method: :delete
+    = render partial: 'admin_user', collection: @admin_users
 
 br
 

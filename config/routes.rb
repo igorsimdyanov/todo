@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   post :toggle, to: 'locales#toggle'
   namespace :admin do
     root 'users#index'
-    resources :users
+    resources :users do
+      member do
+        post :toggle, action: :toggle
+      end  
+    end
   end
   devise_for :users
   resources :events do 
