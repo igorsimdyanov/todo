@@ -17,6 +17,8 @@ gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'pundit'
 gem 'jquery-rails'
+gem 'bootstrap'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'ffaker'

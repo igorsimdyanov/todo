@@ -62,10 +62,16 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    autoprefixer-rails (10.4.2.0)
+      execjs (~> 2)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.9.3)
       msgpack (~> 1.0)
+    bootstrap (5.1.3)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.9.3, < 3)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
     concurrent-ruby (1.1.9)
@@ -81,6 +87,7 @@ GEM
     diff-lcs (1.5.0)
     docile (1.4.0)
     erubi (1.10.0)
+    execjs (2.8.1)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -88,6 +95,8 @@ GEM
       railties (>= 5.0.0)
     ffaker (2.20.0)
     ffi (1.15.4)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.8.11)
@@ -132,6 +141,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
+    popper_js (2.9.3)
     public_suffix (4.0.6)
     puma (5.5.2)
       nio4r (~> 2.0)
@@ -258,11 +268,13 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
+  bootstrap
   byebug
   devise
   devise-i18n
   factory_bot_rails
   ffaker
+  font-awesome-rails
   jbuilder (~> 2.7)
   jquery-rails
   kaminari

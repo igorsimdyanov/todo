@@ -9,5 +9,7 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
-    == render 'shared/header'
-    = yield
+    .container
+      .row
+        == render 'shared/header'
+        = yield
