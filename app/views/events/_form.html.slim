@@ -7,15 +7,19 @@
           li = message
 
   .field
-    = f.label :name
-    = f.text_field :name
+    = f.label :name, class: 'form-label'
+    = f.text_field :name, class: 'form-control'
 
   .field
-    = f.label :content
-    = f.text_area :content
+    = f.label :content, class: 'form-label'
+    = f.text_area :content, class: 'form-control'
 
   .field
-    = f.label :done
-    = f.check_box :done
+    = f.label :finished_at, class: 'form-label'
+    = f.datetime_field :finished_at, class: 'form-control'
 
-  .actions = f.submit
+  .field
+    = f.label :done, class: 'form-check-label'
+    = f.check_box :done, class: 'form-check-input'
+
+  .actions = f.submit class: 'btn btn-secondary'
