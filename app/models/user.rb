@@ -36,6 +36,14 @@ class User < ApplicationRecord
     end
   end
 
+  def attributes
+    { name: name, email: email }
+  end
+
+  def description
+    "#{name} (#{email})"
+  end
+
   def active_for_authentication?
     super && active?
   end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RootApi => '/'
   post :toggle, to: 'locales#toggle'
   namespace :admin do
     root 'users#index'

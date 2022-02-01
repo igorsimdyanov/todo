@@ -19,6 +19,8 @@ gem 'pundit'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'font-awesome-rails'
+gem 'grape'
+gem 'grape-entity'
 
 group :development, :test do
   gem 'ffaker'
