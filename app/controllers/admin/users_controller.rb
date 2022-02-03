@@ -7,7 +7,7 @@ class Admin::UsersController < Admin::ApplicationController
   def index
     authorize [:admin, User]
     @admin_users = policy_scope(
-                     User, 
+                     User.includes(:role),
                      policy_scope_class: Admin::UserPolicy::Scope
                    ).all
   end
