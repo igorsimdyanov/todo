@@ -1,5 +1,5 @@
 tr
   td.text-center = event.items.size
   td = link_to event.name, event, class: 'link-secondary'
-  td = link_to edit_event_path(event), class: 'btn btn-danger' do
+  td.text-end = link_to edit_event_path(event), class: 'btn btn-danger' do
     span.fa.fa-pencil
