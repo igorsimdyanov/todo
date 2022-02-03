@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Rolable
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :trackable,
@@ -30,11 +32,7 @@ class User < ApplicationRecord
            source: :commentable,
            source_type: :User
 
-  Role.find_each do |role|
-    define_method "#{role.code}?" do
-      role_id == role.id
-    end
-  end
+  act_as_rolable
 
   def attributes
     { name: name, email: email }
