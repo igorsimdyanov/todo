@@ -22,4 +22,6 @@ class RootApi < Grape::API
   end
 
   mount Events
+  # api/swagger_doc
+  add_swagger_documentation
 end

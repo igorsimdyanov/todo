@@ -22,6 +22,9 @@ gem 'font-awesome-rails'
 gem 'grape'
 gem 'grape-entity'
 gem 'grape-kaminari'
+gem 'grape-swagger'
+gem 'grape-swagger-entity'
+gem 'grape-swagger-representable'
 
 group :development, :test do
   gem 'ffaker'
