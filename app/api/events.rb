@@ -9,15 +9,15 @@ class Events < Grape::API
       use :pagination, per_page: 2, max_per_page: 2, offset: 0
     end
     get '/' do
-      scope = EventPolicy::Scope.new(current_user, events_scope(params[:all])).resolve
+      # scope = EventPolicy::Scope.new(current_user, events_scope(params[:all])).resolve
 
-      present paginate(scope), with: Entities::EventIndex
+      present paginate(events_scope(params[:all])), with: Entities::EventIndex
     end
 
     route_param :event_id, type: Integer do
       before do
-        scope = EventPolicy::Scope.new(current_user, Event).resolve
-        @event = scope.find params[:event_id]
+        # scope = EventPolicy::Scope.new(current_user, Event).resolve
+        @event = Event.find params[:event_id]
       end
 
       get '/' do

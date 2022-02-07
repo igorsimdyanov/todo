@@ -34,6 +34,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'letter_opener'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
