@@ -21,6 +21,7 @@ gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'grape'
 gem 'grape-entity'
+gem 'grape-kaminari'
 
 group :development, :test do
   gem 'ffaker'
