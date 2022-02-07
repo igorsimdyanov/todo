@@ -7,12 +7,15 @@ class Events < Grape::API
       use :filters
     end
     get '/' do
-      present events_scope(params[:all]), with: Entities::EventIndex
+      scope = EventPolicy::Scope.new(current_user, events_scope(params[:all])).resolve
+
+      present scope, with: Entities::EventIndex
     end
 
     route_param :event_id, type: Integer do
       before do
-        @event = Event.find params[:event_id]
+        scope = EventPolicy::Scope.new(current_user, Event).resolve
+        @event = scope.find params[:event_id]
       end
 
       get '/' do
