@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module EventsHelper
   extend Grape::API::Helpers
 

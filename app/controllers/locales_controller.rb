@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LocalesController < ApplicationController
   def toggle
     session[:locale] ||= I18n.default_locale.to_s

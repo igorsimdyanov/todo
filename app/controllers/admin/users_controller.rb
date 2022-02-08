@@ -1,79 +1,74 @@
-class Admin::UsersController < Admin::ApplicationController
-  before_action :set_admin_user, only: %i[ show edit update destroy toggle ]
-  # after_action :verify_authorized, except: :index
-  # after_action :verify_policy_scoped, only: :index
+# frozen_string_literal: true
 
-  # GET /admin/users or /admin/users.json
-  def index
-    authorize [:admin, User]
-    @admin_users = policy_scope(
-                     User.includes(:role),
-                     policy_scope_class: Admin::UserPolicy::Scope
-                   ).all
-  end
+module Admin
+  class UsersController < Admin::ApplicationController
+    before_action :set_admin_user, only: %i[show edit update destroy toggle]
+    # after_action :verify_authorized, except: :index
+    # after_action :verify_policy_scoped, only: :index
 
-  # GET /admin/users/1 or /admin/users/1.json
-  def show
-  end
+    # GET /admin/users or /admin/users.json
+    def index
+      authorize [:admin, User]
+      @admin_users = policy_scope(
+        User.includes(:role),
+        policy_scope_class: Admin::UserPolicy::Scope
+      ).all
+    end
 
-  def toggle
-    authorize [:admin, @admin_user]
-    @admin_user.update_column(:active, !@admin_user.active)
+    # GET /admin/users/1 or /admin/users/1.json
+    def show; end
 
-    respond_to { |format| format.json { head :no_content } }
-  end
+    def toggle
+      authorize [:admin, @admin_user]
+      @admin_user.update(active: !@admin_user.active)
 
-  # GET /admin/users/new
-  def new
-    @admin_user = User.new
-    authorize [:admin, @admin_user]
-  end
+      respond_to { |format| format.json { head :no_content } }
+    end
 
-  # GET /admin/users/1/edit
-  def edit
-    authorize @admin_user, policy_class: Admin::UserPolicy
-  end
+    # GET /admin/users/new
+    def new
+      @admin_user = User.new
+      authorize [:admin, @admin_user]
+    end
 
-  # POST /admin/users or /admin/users.json
-  def create
-    @admin_user = User.new(admin_user_params)
-    authorize [:admin, @admin_user]
+    # GET /admin/users/1/edit
+    def edit
+      authorize @admin_user, policy_class: Admin::UserPolicy
+    end
 
-    respond_to do |format|
+    # POST /admin/users or /admin/users.json
+    def create
+      @admin_user = User.new(admin_user_params)
+      authorize [:admin, @admin_user]
+
       if @admin_user.save
-        format.html { redirect_to [:admin, @admin_user], notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: [:admin, @admin_user] }
+        redirect_to [:admin, @admin_user], notice: 'User was successfully created.'
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @admin_user.errors, status: :unprocessable_entity }
+        render :new, status: :unprocessable_entity
       end
     end
-  end
 
-  # PATCH/PUT /admin/users/1 or /admin/users/1.json
-  def update
-    authorize [:admin, @admin_user]
-    respond_to do |format|
+    # PATCH/PUT /admin/users/1 or /admin/users/1.json
+    def update
+      authorize [:admin, @admin_user]
       if @admin_user.update(admin_user_params)
-        format.html { redirect_to [:admin, @admin_user], notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: [:admin, @admin_user] }
+        redirect_to [:admin, @admin_user], notice: 'User was successfully updated.'
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @admin_user.errors, status: :unprocessable_entity }
+        render :edit, status: :unprocessable_entity
       end
     end
-  end
 
-  # DELETE /admin/users/1 or /admin/users/1.json
-  def destroy
-    authorize [:admin, @admin_user]
-    @admin_user.destroy
-    respond_to do |format|
-      format.json { head :no_content }
+    # DELETE /admin/users/1 or /admin/users/1.json
+    def destroy
+      authorize [:admin, @admin_user]
+      @admin_user.destroy
+      respond_to do |format|
+        format.json { head :no_content }
+      end
     end
-  end
 
-  private
+    private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_user
       @admin_user = User.find(params[:id])
@@ -83,4 +78,5 @@ class Admin::UsersController < Admin::ApplicationController
     def admin_user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
+  end
 end

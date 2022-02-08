@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 LetterOpener.configure do |config|
   # To overrider the location for message storage.
   # Default value is `tmp/letter_opener`
@@ -11,5 +13,5 @@ LetterOpener.configure do |config|
   # It might be useful when you use WSL (Windows Subsystem for Linux) and default
   # scheme doesn't work for you.
   # Default value is blank
-  #config.file_uri_scheme = 'file://///wsl$/Ubuntu-18.04'
+  # config.file_uri_scheme = 'file://///wsl$/Ubuntu-18.04'
 end
