@@ -21,6 +21,8 @@ gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'grape'
 gem 'grape-entity'
+gem 'dotenv-rails'
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'ffaker'
