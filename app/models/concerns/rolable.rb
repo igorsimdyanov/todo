@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Rolable
   extend ActiveSupport::Concern
 
   class_methods do
-    def act_as_rolable(role_model=Role)
+    def act_as_rolable(role_model = Role)
       return unless defined? role_model
 
       role_model.find_each do |role|
@@ -13,5 +15,5 @@ module Rolable
     rescue ActiveRecord::NoDatabaseError
       false
     end
-  end  
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AboutController < ApplicationController
   before_action :log_start, :log_params, :log_fihish, only: :index
 

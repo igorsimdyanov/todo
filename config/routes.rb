@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   mount RootApi => '/'
   post :toggle, to: 'locales#toggle'
@@ -6,11 +8,11 @@ Rails.application.routes.draw do
     resources :users do
       member do
         post :toggle, action: :toggle
-      end  
+      end
     end
   end
   devise_for :users
-  resources :events do 
+  resources :events do
     resources :items
   end
 

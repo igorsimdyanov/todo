@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Events < Grape::API
   helpers FiltersHelper, EventsHelper
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.ignore_nil!
 json.extract! event, :id
 json.name truncate(event.name)

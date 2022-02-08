@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Entities
   class EventIndex < Grape::Entity
     include ActionView::Helpers::TextHelper
