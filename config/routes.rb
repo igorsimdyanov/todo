@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'events/page/(:page(.:format))', to: 'events#index'
 
   get 'about', to: 'about#index', as: 'about_index'
+  get 'emails', to: 'emails#index'
   scope '/:locale' do
     get 'about', to: 'about#index'
   end
