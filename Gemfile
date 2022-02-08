@@ -21,6 +21,10 @@ gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'grape'
 gem 'grape-entity'
+gem 'grape-kaminari'
+gem 'grape-swagger'
+gem 'grape-swagger-entity'
+gem 'grape-swagger-representable'
 
 group :development, :test do
   gem 'ffaker'
@@ -30,6 +34,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'letter_opener'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do

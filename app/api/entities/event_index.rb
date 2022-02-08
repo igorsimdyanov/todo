@@ -5,6 +5,10 @@ module Entities
 
     expose :id, :name, :content, :done, :finished_at
 
+    expose :user, using: 'Entities::User' do |event, _|
+      event.user
+    end
+
     def name
       truncate(object.name)
     end

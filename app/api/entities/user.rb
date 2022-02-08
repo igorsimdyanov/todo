@@ -3,10 +3,10 @@ module Entities
     include ActionView::Helpers::TextHelper
     root 'users', 'user'
 
-    expose :id, :name, :role
+    expose :id, :name
 
-    def role
-      object.role.code
+    expose :role, using: 'Entities::Role' do |user, _|
+      user.role
     end
   end
 end
