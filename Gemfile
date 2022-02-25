@@ -27,6 +27,7 @@ gem 'webpacker', '~> 5.0'
 gem 'letter_opener'
 gem 'whenever', require: false
 gem 'dotenv-rails'
+gem 'resque'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
