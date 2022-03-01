@@ -1,8 +1,16 @@
-header
-  ul
+header.row
+  .col-1
+    .text-center style='margin-top: 18px;'
+      - if current_user_avatar?
+        = current_user_avatar
+      - else
+        i.fa.fa-user style='font-size: 50px'
+  .col-11
+    ul
     - if user_signed_in?
       li
-        span = t('label.hello') % current_user.name
+        span> = t('label.hello') % current_user.name
+        span = link_to t('label.edit'), edit_user_registration_path
       li
         span
           = link_to t('label.log_out'), destroy_user_session_path, method: :delete

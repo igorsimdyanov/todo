@@ -28,6 +28,7 @@ gem 'letter_opener'
 gem 'whenever', require: false
 gem 'dotenv-rails'
 gem 'resque'
+gem 'image_processing'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

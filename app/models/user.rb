@@ -66,6 +66,8 @@ class User < ApplicationRecord
            source: :commentable,
            source_type: :User
 
+  has_one_attached :avatar
+
   act_as_rolable
 
   def attributes

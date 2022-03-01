@@ -15,6 +15,10 @@
     = f.text_area :content, class: 'form-control'
 
   .field
+    = f.label :files, class: 'form-label'
+    = f.file_field :files, multiple: true, class: 'form-control'
+
+  .field
     = f.label :finished_at, class: 'form-label'
     = f.datetime_field :finished_at, class: 'form-control'
 
