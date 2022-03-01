@@ -1,0 +1,6 @@
+queue_clean_up:
+  cron: '0 0 * * *'
+  class: 'DeadlineEventsCleanupJob'
+  queue: default
+  args:
+  description: 'Вывод в log-файл'
