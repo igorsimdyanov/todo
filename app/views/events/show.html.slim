@@ -20,6 +20,15 @@ p
         td = i + 1
         td = item.name
 
+- if @event.files.attached?
+  p
+    strong Files:
+    table
+      - @event.files.each_with_index do |file, i|
+        tr
+          td = i + 1
+          td = link_to file.blob.filename, rails_blob_path(file, only_path: true)
+
 => link_to 'Edit', edit_event_path(@event)
 '|
 =< link_to 'Back', events_path

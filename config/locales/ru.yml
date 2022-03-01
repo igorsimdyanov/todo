@@ -38,6 +38,13 @@ ru:
   config:
     <<: *alias
   activerecord:
+    attributes:
+      user:
+        password:              Пароль
+        password_confirmation: Подтверждение
+        email:                 Email
+        name:                  Имя пользователя
+        avatar:                Аватарка пользователя
     models:
       user:
         zero: пользователей

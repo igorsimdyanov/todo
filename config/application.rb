@@ -9,6 +9,7 @@ require 'active_record/railtie'
 require 'action_controller/railtie'
 require 'action_mailer/railtie'
 require 'action_view/railtie'
+require 'active_storage/engine'
 require 'sprockets/railtie'
 
 Bundler.require(*Rails.groups)
@@ -26,6 +27,7 @@ module Todo
     config.paths.add Rails.root.join('app/api/helpers').to_s, eager_load: true
     config.paths.add Rails.root.join('lib').to_s, eager_load: true
     config.active_job.queue_adapter = :resque
+    config.active_storage.variant_processor = :mini_magick
 
     config.generators do |g|
       g.org             :active_record
