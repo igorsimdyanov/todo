@@ -2,18 +2,11 @@
 require 'resque/server'
 
 Rails.application.routes.draw do
+  devise_for :users #, ActiveAdmin::Devise.config
   mount RootApi => '/'
   mount Resque::Server.new, at: '/resque'
   post :toggle, to: 'locales#toggle'
-  namespace :admin do
-    root 'users#index'
-    resources :users do
-      member do
-        post :toggle, action: :toggle
-      end
-    end
-  end
-  devise_for :users
+  ActiveAdmin.routes(self)
   resources :events do
     resources :items
   end
