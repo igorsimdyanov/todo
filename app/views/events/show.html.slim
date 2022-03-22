@@ -27,7 +27,7 @@ p
       - @event.files.each_with_index do |file, i|
         tr
           td = i + 1
-          td = link_to file.blob.filename, rails_blob_path(file, only_path: true)
+          td = link_to file.blob.filename, rails_blob_path(file, disposition: 'attachment')
 
 => link_to t('label.edit'), edit_event_path(@event)
 '|
