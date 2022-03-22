@@ -1,19 +1,19 @@
 p#notice = notice
 
 p
-  strong Name:
+  strong= t('activerecord.attributes.event.name')
   =< @event.name
 
 p
-  strong Content:
+  strong= t('activerecord.attributes.event.content')
   =< @event.content
 
 p
-  strong Done:
+  strong= t('activerecord.attributes.event.done')
   =< @event.done
 
 p
-  strong Items:
+  strong= t('activerecord.attributes.event.items')
   table
     - @event.items.order(created_at: :desc).each_with_index do |item, i|
       tr
@@ -22,13 +22,13 @@ p
 
 - if @event.files.attached?
   p
-    strong Files:
+    strong= t('activerecord.attributes.event.files')
     table
       - @event.files.each_with_index do |file, i|
         tr
           td = i + 1
-          td = link_to file.blob.filename, rails_blob_path(file, only_path: true)
+          td = link_to file.blob.filename, rails_blob_path(file, disposition: 'attachment')
 
-=> link_to 'Edit', edit_event_path(@event)
+=> link_to t('label.edit'), edit_event_path(@event)
 '|
-=< link_to 'Back', events_path
+=< link_to t('label.back'), events_path

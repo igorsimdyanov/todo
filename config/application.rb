@@ -28,6 +28,16 @@ module Todo
     config.paths.add Rails.root.join('lib').to_s, eager_load: true
     config.active_job.queue_adapter = :resque
     config.active_storage.variant_processor = :mini_magick
+    config.active_storage.content_types_allowed_inline = %w[
+      image/png
+      image/gif
+      image/jpg
+      image/jpeg
+      image/tiff
+      image/bmp
+      image/vnd.adobe.photoshop
+      image/vnd.microsoft.icon
+    ]
 
     config.generators do |g|
       g.org             :active_record
