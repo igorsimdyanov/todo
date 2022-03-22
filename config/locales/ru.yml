@@ -5,6 +5,7 @@ ru:
         '%d.%m.%Y'
   main_page: Главная страница
   about: О нас
+  new_event: Новое событие
   content: Содержимое параграфа
   current_date: Текущая дата
   visits: Посещения

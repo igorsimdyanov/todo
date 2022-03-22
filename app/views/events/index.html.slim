@@ -1,4 +1,4 @@
-h1 Listing events
+h1= t('activerecord.models.event')
 
 table.table.table-striped
   thead
@@ -11,8 +11,8 @@ table.table.table-striped
     = render partial: 'event', collection: @events
 
 p 
-  = link_to 'New Event', new_event_path
+  = link_to t(:new_event), new_event_path
 p
-  = link_to 'О нас', about_index_path
+  = link_to t(:about), about_index_path
 p
   = paginate @events
