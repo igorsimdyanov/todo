@@ -17,6 +17,7 @@ ru:
     index: Список
     new: Создание
     edit: Редактирование
+    back: Назад
   settings:
     str: Привет, мир!
     num: 42
@@ -46,6 +47,12 @@ ru:
         email:                 Email
         name:                  Имя пользователя
         avatar:                Аватарка пользователя
+      event:
+        name:                  Заголовок
+        content:               Содержимое
+        done:                  Выполнено
+        items:                 Подразделы
+        files:                 Файлы
     models:
       event: События
       user:
