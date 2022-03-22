@@ -4,6 +4,7 @@ Item.destroy_all
 Event.destroy_all
 User.destroy_all
 Role.destroy_all
+About.destroy_all
 
 default_role = Role.create!(name: 'Пользователь', code: :default)
 admin_role = Role.create!(name: 'Администратор', code: :admin)
@@ -56,3 +57,5 @@ hash_comments = 200.times.map do
 end
 
 Comment.create! hash_comments
+
+About.create! body: 'Описание страницы О нас'

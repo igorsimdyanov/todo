@@ -11,6 +11,11 @@ p
 p
   = User.count
   =< t('activerecord.models.user', count: User.count)
+
+- if @about&.map_image&.attached?
+  p
+    = image_tag @about.map_image.variant(resize_to_fill: [200, 200]), class: :rounded
+
 p
   = link_to t(:main_page), root_path
   - link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
