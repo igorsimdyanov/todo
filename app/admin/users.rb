@@ -14,6 +14,12 @@ ActiveAdmin.register User do
     actions
   end
 
+  csv do
+    column :id
+    column :name
+    column :email
+  end
+
   filter :email
   filter :name
   filter :active

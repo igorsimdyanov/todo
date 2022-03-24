@@ -56,6 +56,7 @@ class User < ApplicationRecord
 
   belongs_to :role
   has_many :events, dependent: :destroy
+  has_many :items, through: :events
   has_many :comments, dependent: :destroy
   has_many :commented_events,
            through: :comments,
