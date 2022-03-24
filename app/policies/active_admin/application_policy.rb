@@ -10,6 +10,18 @@ class ActiveAdmin::ApplicationPolicy
     user.admin?
   end
 
+  def report?
+    user.admin?
+  end
+
+  def download?
+    user.admin?
+  end
+
+  def upload?
+    user.admin?
+  end
+
   def show?
     user.admin?
   end

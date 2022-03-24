@@ -30,6 +30,8 @@ gem 'dotenv-rails'
 gem 'resque'
 gem 'image_processing'
 gem 'activeadmin'
+gem 'caxlsx'
+gem 'roo'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
