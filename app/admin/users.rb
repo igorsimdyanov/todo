@@ -7,6 +7,13 @@ ActiveAdmin.register User do
   index do
     selectable_column
     id_column
+    column(:avatar, width: 100) do |user|
+      if user.avatar.attached?
+        image_tag user.avatar.variant(resize: '30x30'), class: 'img-fluid rounded-circle'
+      else
+        tag.i(class: 'fa fa-user-circle-o', style: 'font-size:28px; color: rgb(63 67 70)')
+      end
+    end
     column :email
     column :name
     column :active
