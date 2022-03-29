@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_03_171133) do
+ActiveRecord::Schema.define(version: 2022_03_29_181906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,14 @@ ActiveRecord::Schema.define(version: 2022_03_03_171133) do
     t.string "code", comment: "Псевдоним"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "traffic_lights", comment: "Светофоры города", force: :cascade do |t|
+    t.string "address", comment: "Адрес"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "state", comment: "Состояния AASM: красный 0, желтый 10, зеленый 20"
+    t.boolean "active", default: true, comment: "true - включен, false - выключен"
   end
 
   create_table "users", comment: "Пользователи системы", force: :cascade do |t|
