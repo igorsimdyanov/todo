@@ -34,6 +34,7 @@ gem 'webpacker', '~> 5.0'
 gem 'whenever', require: false
 gem 'aasm'
 gem 'aasm-diagram'
+gem 'redis-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

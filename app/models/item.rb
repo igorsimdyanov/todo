@@ -21,7 +21,7 @@
 #  fk_rails_...  (event_id => events.id)
 #
 class Item < ApplicationRecord
-  belongs_to :event
+  belongs_to :event, touch: true
 
   validates :name, presence: true
 end
