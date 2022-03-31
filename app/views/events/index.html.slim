@@ -8,7 +8,8 @@ table.table.table-striped
       th
 
   tbody
-    = render partial: 'event', collection: @events
+    - cache [current_user, :events_list, params[:page]] do
+      = render partial: 'event', collection: @events, cached: true
 
 p 
   = link_to 'New Event', new_event_path
