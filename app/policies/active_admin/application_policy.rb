@@ -22,6 +22,10 @@ class ActiveAdmin::ApplicationPolicy
     user.admin?
   end
 
+  def queue_upload?
+    user.admin?
+  end
+
   def show?
     user.admin?
   end
