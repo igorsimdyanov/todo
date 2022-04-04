@@ -18,7 +18,7 @@ class TrafficLight < ApplicationRecord
     green: 20
   }
 
-  aasm column: 'state', whiny_transitions: false do
+  aasm column: 'state', enum: true, whiny_transitions: false do
     state :red, initial: true, display: I18n.t('states.red')
     state :yellow, display: I18n.t('states.yellow'), before_enter: :logging
     state :green, display: I18n.t('states.green'), before_enter: :logging
