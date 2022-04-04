@@ -37,7 +37,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable,  :trackable,
+  devise :database_authenticatable, :trackable,
          :recoverable, :rememberable, :validatable, :registerable
 
   before_destroy :log_before_destroy
@@ -83,7 +83,37 @@ class User < ApplicationRecord
     super && active?
   end
 
+  def events_count
+    counter = Rails.cache.data.get(events_counter_key)
+    if counter
+      counter
+    else
+      counter = events.count
+      Rails.cache.data.set(events_counter_key, counter)
+    end
+    counter
+  end
+
+  def items_count
+    counter = Rails.cache.data.get(items_counter_key)
+    if counter
+      counter
+    else
+      counter = items.count
+      Rails.cache.data.set(items_counter_key, counter)
+    end
+    counter
+  end
+
   private
+
+  def events_counter_key
+    "events_counter_#{id}"
+  end
+
+  def items_counter_key
+    "items_counter_#{id}"
+  end
 
   def normalize_email
     self.email = email.downcase
