@@ -1,0 +1,11 @@
+default: &default
+  host: <%= ENV.fetch('REDIS_HOST', 'localhost') %>
+  port: <%= ENV.fetch('REDIS_PORT', 6379) %>
+  db: <%= ENV.fetch('REDIS_DB', 0) %>
+  expires_in: <%= 90.minutes %>
+test:
+  <<: *default
+development:
+  <<: *default
+production:
+  <<: *default

@@ -25,12 +25,7 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
     # config.cache_store = :memory_store #, compress: true, expires_in: 20.minutes
     # config.cache_store = :file_store, "#{root}/tmp/cache/views"
     config.active_record.cache_versioning = false
-    config.cache_store = :redis_store, {
-      host: 'localhost',
-      port: 6379,
-      db: 0,
-      expires_in: 90.minutes
-    }
+    config.cache_store = :redis_store, Rails.application.config_for(:redis).deep_symbolize_keys
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
