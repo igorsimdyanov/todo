@@ -39,7 +39,7 @@ class Event < ApplicationRecord
     finished: 30
   }
 
-  aasm column: 'state' do
+  aasm column: 'state', enum: true do
     state :created, initial: true, display: I18n.t('state.created')
     state :running, display: I18n.t('state.running')
     state :pending, display: I18n.t('state.pending')
