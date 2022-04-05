@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  include Commentable
+
   before_action :set_event, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
@@ -17,6 +19,8 @@ class EventsController < ApplicationController
   # GET /events/1 or /events/1.json
   def show
     authorize @event
+    # @comments = sort_comments(@event.comments)
+    @comments = @event.comments.root.self_and_descendants.order(:lft)
   end
 
   # GET /events/new
