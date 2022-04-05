@@ -85,9 +85,7 @@ class User < ApplicationRecord
 
   def events_count
     counter = Rails.cache.data.get(events_counter_key)
-    if counter
-      counter
-    else
+    unless counter
       counter = events.count
       Rails.cache.data.set(events_counter_key, counter)
     end
@@ -96,9 +94,7 @@ class User < ApplicationRecord
 
   def items_count
     counter = Rails.cache.data.get(items_counter_key)
-    if counter
-      counter
-    else
+    unless counter
       counter = items.count
       Rails.cache.data.set(items_counter_key, counter)
     end
