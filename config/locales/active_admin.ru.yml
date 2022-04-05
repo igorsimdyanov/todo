@@ -1,13 +1,197 @@
 ru:
   active_admin:
-    view: Подробнее
-    edit: Редактировать
+    file:  файл
+    user:  пользователь
+    users:  пользователи
+    actions: действия
+    item:  подпункт
+    items: подпункты
+    state: статус
+    role: роль
+    content: содержимое
+    pending: приостановлено
+    info:
+      still_in_work: все еще в работе
+    label:
+      done: исполненно
+      finished_at: завершено(дата)
+      send: отправить
+      state_event: статус задания
+      change: изменить
+      role: роль
+      roles: роли
+      user: пользователь
+      users: пользователи
+      events: задания
+      main_events: основные задания
+      event: задние
+      parent_event: основное задание
+      reports: отчеты
+      email: эл.почта
+      new_password: новый пароль
+      confirm_password: подтвердить пароль
+      users_imports: импорт/экспорт пользователей
+      change_or_create_name_status_role: изменить или добавить (имя, статус, роль)
+      change_or_create_email: изменить или добавить эл.почту
+      change_or_create_event: изменить или создать задание
+      change_or_create_role: изменить или создать роль
+      change_or_create_item: изменить или создать подзадание
+      create_password: создать пароль   
+    messages:
+      state_change_error: ошибка смены статуса
     resources:
       user:
         new_model: Создать пользователя
         edit_model: Редактировать пользователя
         delete_model: Удалить пользователя
       event:
-        new_model: Создать событие
-        edit_model: Редактировать событие
-        delete_model: Удалить событие
+        new_model: Создать задание
+        edit_model: Редактировать задание
+        delete_model: Удалить задание
+        download_model: Скачать задание
+      item:
+        new_model: Создать подзадание
+        edit_model: Редактировать подзадание
+        delete_model: Удалить подзадание
+      report:
+        users: Пользователи
+    dashboard: "Панель управления"
+    dashboard_welcome:
+      welcome: "Добро пожаловать в Active Admin. Это стандартная страница управления сайтом."
+      call_to_action: "Чтобы добавить сюда что-нибудь загляните в 'app/admin/dashboard.rb'"
+    view: "Открыть"
+    edit: "Изменить"
+    delete: "Удалить"
+    delete_confirmation: "Вы уверены, что хотите удалить это?"
+    new_model: "Создать %{model}"
+    edit_model: "Изменить %{model}"
+    delete_model: "Удалить %{model}"
+    details: "%{model} подробнее"
+    cancel: "Отмена"
+    content: "Содержимое"
+    empty: "Пусто"
+    previous: "Пред."
+    next: "След."
+    download: "Загрузка:"
+    has_many_new: "Добавить %{model}"
+    has_many_delete: "Удалить"
+    has_many_remove: "Убрать"
+    filters:
+      buttons:
+        filter: "Фильтровать"
+        clear: "Очистить"
+      predicates:
+        contains: "Содержит"
+        equals: "Равно"
+        starts_with: "Начинается с"
+        ends_with: "Заканчивается"
+        greater_than: "больше"
+        less_than: "меньше"
+        from: "От"
+        to: "До"
+    search_status:
+      headline: "Статус поиска:"
+      current_scope: "Область:"
+      current_filters: "Текущий фильтр:"
+      no_current_filters: "Ни один"
+    status_tag:
+      "yes": "Да"
+      "no": "Нет"
+      "unset": "Нет"
+    main_content: "Создайте %{model}#main_content для отображения содержимого."
+    logout: "Выйти"
+    powered_by: "Работает на %{active_admin} %{version}"
+    sidebars:
+      filters: "Фильтры"
+      search_status: "Статус поиска"
+    pagination:
+      empty: "%{model} не найдено"
+      one: "Результат: <b>1</b> %{model}"
+      one_page: "Результат: <b>%{n}</b> %{model}"
+      multiple: "Результат: %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{total}</b>"
+      multiple_without_total: "Результат: %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>"
+      entry:
+        one: "запись"
+        few: "записи"
+        many: "записей"
+        other: "записей"
+    any: "Любой"
+    blank_slate:
+      content: "Пока нет %{resource_name}."
+      link: "Создать"
+    dropdown_actions:
+      button_label: "Oперации"
+    batch_actions:
+      button_label: "Групповые операции"
+      default_confirmation: "Вы уверены, что вы хотите это сделать?"
+      delete_confirmation: "Вы уверены, что хотите удалить %{plural_model}?"
+      succesfully_destroyed:
+        one: "Успешно удалено: 1 %{model}"
+        few: "Успешно удалено: %{count} %{plural_model}"
+        many: "Успешно удалено: %{count} %{plural_model}"
+        other: "Успешно удалено: %{count} %{plural_model}"
+      selection_toggle_explanation: "(Отметить всё / Снять выделение)"
+      action_label: "%{title} выбранное"
+      labels:
+        destroy: "Удалить"
+    comments:
+      created_at: "Дата создания"
+      resource_type: "Тип ресурса"
+      author_type: "Тип автора"
+      body: "Текст"
+      author: "Автор"
+      add: "Добавить Комментарий"
+      delete: "Удалить Комментарий"
+      delete_confirmation: "Вы уверены, что хотите удалить этот комментарий?"
+      resource: "Ресурс"
+      no_comments_yet: "Пока нет комментариев."
+      author_missing: "Аноним"
+      title_content: "Комментарии (%{count})"
+      errors:
+        empty_text: "Комментарий не сохранен, текст не должен быть пустым."
+    devise:
+      username:
+        title: "Имя пользователя"
+      email:
+        title: "Эл. почта"
+      subdomain:
+        title: "Поддомен"
+      password:
+        title: "Пароль"
+      sign_up:
+        title: "Зарегистрироваться"
+        submit: "Зарегистрироваться"
+      login:
+        title: "Войти"
+        remember_me: "Запомнить меня"
+        submit: "Войти"
+      reset_password:
+        title: "Забыли пароль?"
+        submit: "Сбросить пароль"
+      change_password:
+        title: "Изменение пароля"
+        submit: "Изменение пароля"
+      unlock:
+        title: "Повторно отправить инструкции по разблокировке"
+        submit: "Повторно отправить инструкции по разблокировке"
+      resend_confirmation_instructions:
+        title: "Выслать повторно письмо с активацией"
+        submit: "Выслать повторно письмо с активацией"
+      links:
+        sign_up: "Зарегистрироваться"
+        sign_in: "Войти"
+        forgot_your_password: "Забыли пароль?"
+        sign_in_with_omniauth_provider: "Войти с помощью %{provider}"
+        resend_unlock_instructions: "Повторная отправка инструкций разблокировки"
+        resend_confirmation_instructions: "Повторная отправка инструкций подтверждения"
+    unsupported_browser:
+      headline: "Пожалуйста, обратите внимание, что Active Admin больше не поддерживает старые версии Internet Explorer начиная с версии IE 8"
+      recommendation: "Мы рекомендуем обновить версию вашего браузера (<a href=\"http://windows.microsoft.com/ie\">Internet Explorer</a>, <a href=\"https://chrome.google.com/\">Google Chrome</a>, или <a href=\"https://mozilla.org/firefox/\">Firefox</a>)."
+      turn_off_compatibility_view: "Если вы используете IE 9 или новее, убедитесь, что <a href=\"https://support.microsoft.com/ru-ru/help/17471\">вы выключили опцию \"Просмотр в режиме совместимости\"</a>."
+    access_denied:
+      message: "Вы не авторизованы для выполнения данного действия."
+    index_list:
+      table: "Таблица"
+      block: "Список"
+      grid: "Сетка"
+      blog: "Блог"

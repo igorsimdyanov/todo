@@ -1,10 +1,9 @@
+# frozen_string_literal: true
+
 module Services
   class UsersUpload
+    include Callable
     attr_reader :package
-
-    def self.call(*args)
-      new.call(*args)
-    end
 
     def call(path)
       xlsx = Roo::Spreadsheet.open(path, extension: :xlsx)

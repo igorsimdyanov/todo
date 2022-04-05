@@ -1,10 +1,9 @@
+# frozen_string_literal: true
+
 module Services
   class UsersReport
+    include Callable
     attr_reader :package
-
-    def self.call(*args)
-      new.call(*args)
-    end
 
     def initialize
       @package = Axlsx::Package.new
