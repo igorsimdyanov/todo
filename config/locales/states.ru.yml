@@ -3,3 +3,11 @@ ru:
     red: Красный цвет
     yellow: Желтый цвет
     green: Зеленый цвет
+    created: создано
+    running: в работе
+    pending: приостановлено
+    finished: завершено
+    active: активный
+    archived: архивный
+    banned: заблокированный
+    new: новый

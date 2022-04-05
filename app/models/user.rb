@@ -5,7 +5,6 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  active                 :boolean          default(TRUE)
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string
 #  email                  :string
@@ -18,6 +17,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  state                  :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role_id                :integer
@@ -33,6 +33,7 @@
 #  fk_rails_...  (role_id => roles.id)
 #
 class User < ApplicationRecord
+  include AASM
   include Rolable
 
   # Include default devise modules. Others available are:
@@ -70,6 +71,36 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   act_as_rolable
+
+  enum state: {
+    created: 0,
+    active: 10,
+    banned: 20,
+    archived: 30
+  }
+
+ aasm column: 'state', enum: true do
+   state :created, display: I18n.t('state.created')
+   state :active, initial: true, display: I18n.t('state.active')
+   state :banned, display: I18n.t('state.banned')
+   state :archived, display: I18n.t('state.archived')
+
+   event :on do
+     transitions from: %i[created active banned], to: :active
+   end
+
+   event :off do
+     transitions from: %i[active banned], to: :banned
+   end
+
+   event :remove do
+     transitions from: %i[created banned archived], to: :archived
+   end
+
+   event :restore do
+     transitions from: :archived, to: :banned
+   end
+ end
 
   def attributes
     { name: name, email: email }

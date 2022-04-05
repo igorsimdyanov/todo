@@ -5,7 +5,6 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  active                 :boolean          default(TRUE)
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string
 #  email                  :string
@@ -18,6 +17,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  state                  :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role_id                :integer

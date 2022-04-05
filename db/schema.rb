@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_181906) do
+ActiveRecord::Schema.define(version: 2022_04_04_174744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,11 +71,11 @@ ActiveRecord::Schema.define(version: 2022_03_29_181906) do
   create_table "events", comment: "Список дел", force: :cascade do |t|
     t.string "name", comment: "Заголовок"
     t.text "content", comment: "Детальное описание"
-    t.boolean "done", default: false, comment: "Статус: завершено (true), или нет (false)"
     t.datetime "finished_at", comment: "Дата и время завершения дела"
     t.bigint "user_id", comment: "Внешний ключ для связи с таблицей users"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "state", comment: "Состояния AASM: created 0, running 10, pending 20, finished 30"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(version: 2022_03_29_181906) do
   create_table "users", comment: "Пользователи системы", force: :cascade do |t|
     t.string "name", comment: "Имя пользователя"
     t.string "email", comment: "Электронный адрес пользователя"
-    t.boolean "active", default: true, comment: "пользователь активен (true) или забанен (false)"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role_id", comment: "Роль пользователя"
@@ -121,6 +120,7 @@ ActiveRecord::Schema.define(version: 2022_03_29_181906) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.integer "state", comment: "Состояния AASM: created 0, active 10, banned 20, archived 30"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
