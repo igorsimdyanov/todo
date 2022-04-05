@@ -35,6 +35,7 @@ gem 'sass-rails', '>= 6'
 gem 'slim-rails'
 gem 'webpacker', '~> 5.0'
 gem 'whenever', require: false
+gem 'awesome_nested_set'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

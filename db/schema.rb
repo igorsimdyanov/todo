@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_181906) do
+ActiveRecord::Schema.define(version: 2022_04_05_184106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,13 @@ ActiveRecord::Schema.define(version: 2022_03_29_181906) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "commentable_type", null: false
     t.bigint "commentable_id", null: false
+    t.integer "parent_id", comment: "ссылка на родительский комментарий"
+    t.integer "lft", null: false
+    t.integer "rgt", null: false
+    t.integer "depth", default: 0, null: false
+    t.integer "children_count", default: 0, null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -102,6 +108,15 @@ ActiveRecord::Schema.define(version: 2022_03_29_181906) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "state", comment: "Состояния AASM: красный 0, желтый 10, зеленый 20"
     t.boolean "active", default: true, comment: "true - включен, false - выключен"
+  end
+
+  create_table "tree_comments", comment: "Таблица замыканиий для комментариев", force: :cascade do |t|
+    t.integer "parent_id"
+    t.integer "child_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["child_id"], name: "index_tree_comments_on_child_id"
+    t.index ["parent_id", "child_id"], name: "index_tree_comments_on_parent_id_and_child_id", unique: true
   end
 
   create_table "users", comment: "Пользователи системы", force: :cascade do |t|
