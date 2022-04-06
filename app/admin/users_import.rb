@@ -14,7 +14,7 @@ ActiveAdmin.register_page 'Импорт/экспорт пользователе�
   page_action :queue_upload, method: :post do
     ex = Excel.create!(params.require(:excel).permit(:file))
     file = ActiveStorage::Blob.service.path_for(ex.file.key)
-    Services::UsersUpdateImportDelete.call(file)
+    UsersUpdateImportDeleteJob.perform_later(file))
     flash[:notice] = 'Пользователи были обновлены'
     redirect_to action: :index
   end
