@@ -29,7 +29,7 @@ ActiveAdmin.register_page 'Отчет' do
 
   page_action :report, method: :post do
     from_date, to_date = date_interval
-    send_data Services::UsersReport.call(from_date, to_date),
+    send_data Services::Users::Report.call(from_date, to_date),
               type: 'application/octet-stream',
               filename: 'user.xlsx'
   end

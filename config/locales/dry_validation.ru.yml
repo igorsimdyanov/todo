@@ -1,0 +1,6 @@
+ru:
+  dry_validation:
+    errors:
+      gt?:
+        value:
+          price: 'Цена должна быть больше нуля'
