@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dry-initializer (3.1.1)
+
+PLATFORMS
+  x86_64-darwin-18
+
+DEPENDENCIES
+  dry-initializer
+
+BUNDLED WITH
+   2.2.33

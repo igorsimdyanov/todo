@@ -1,12 +1,12 @@
 ActiveAdmin.register_page 'Импорт/экспорт пользователей' do
   page_action :download, method: :post do
-    send_data Services::UsersDownload.call,
+    send_data Services::Users::Download.call,
               type: 'application/octet-stream',
               filename: 'user.xlsx'
   end
 
   page_action :upload, method: :post do
-    Services::UsersUpload.call(params['uploads_form']['excel'].tempfile)
+    Services::Users::Upload.call(params['uploads_form']['excel'].tempfile)
     flash[:notice] = 'Пользователи были обновлены'
     redirect_to action: :index
   end

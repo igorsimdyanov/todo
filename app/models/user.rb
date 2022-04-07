@@ -71,10 +71,6 @@ class User < ApplicationRecord
 
   act_as_rolable
 
-  def attributes
-    { name: name, email: email }
-  end
-
   def description
     "#{name} (#{email})"
   end
