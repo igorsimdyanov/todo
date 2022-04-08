@@ -8,6 +8,7 @@ ruby '3.0.0'
 gem 'aasm'
 gem 'aasm-diagram'
 gem 'activeadmin'
+gem 'awesome_nested_set'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap'
 gem 'caxlsx'
@@ -15,6 +16,9 @@ gem 'config'
 gem 'devise'
 gem 'devise-i18n'
 gem 'dotenv-rails'
+gem 'dry-initializer'
+gem 'dry-struct'
+gem 'dry-validation'
 gem 'font-awesome-rails'
 gem 'grape'
 gem 'grape-entity'
@@ -35,10 +39,6 @@ gem 'sass-rails', '>= 6'
 gem 'slim-rails'
 gem 'webpacker', '~> 5.0'
 gem 'whenever', require: false
-gem 'awesome_nested_set'
-gem 'dry-initializer'
-gem 'dry-struct'
-gem 'dry-validation'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
