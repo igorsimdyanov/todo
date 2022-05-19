@@ -35,7 +35,8 @@
 FactoryBot.define do
   factory :user do
     sequence(:name) { |n| FFaker::Internet.user_name[0..10] + n.to_s }
-    sequence(:email) { |n| "person#{n}@example.com" }
+    sequence(:email) { |n| "person#{n}@example#{rand(0..1000)}.com" }
+    password { 'some_password' }
     active { true }
     role { create(:role) }
   end
