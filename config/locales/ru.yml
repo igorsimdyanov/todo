@@ -45,6 +45,12 @@ ru:
         email:                 Email
         name:                  Имя пользователя
         avatar:                Аватарка пользователя
+      event:
+        user:                  Пользователь
+        name:                  Заголовок
+        content:               Детальное описание
+        done:                  Статус завершения
+        finished_at:           Дата и время завершения Детальное
     models:
       event: События
       user:
@@ -70,6 +76,10 @@ ru:
       models:
         user: Пользователи
         post: Сообщения
+        event:
+          attributes:
+            name:
+              blank: обязателен для заполнения
       attributes:
         user:
           password:              Пароль
