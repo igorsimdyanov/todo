@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 RSpec.describe Event, type: :model do
   subject { build(:event) }
 
   context 'в невалидном состоянии' do
     let(:event) { build(:event_wrong) }
-    
+
     it 'когда пустое название' do
       expect(event).not_to be_valid
       error_message = 'Заголовок обязателен для заполнения'

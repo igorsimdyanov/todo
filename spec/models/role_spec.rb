@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Role, type: :model do
   subject { create(:role) }
 
