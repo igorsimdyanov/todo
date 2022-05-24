@@ -32,8 +32,6 @@
 #
 #  fk_rails_...  (role_id => roles.id)
 #
-require 'rails_helper'
-
 RSpec.describe User, type: :model do
   subject { create(:user) }
 
