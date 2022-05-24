@@ -8,19 +8,16 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    Rack::MiniProfiler.step 'Загрузка событий' do
-      @events = policy_scope(Event)
-                  .includes(:items)
-                  .page(params[:page])
-                  .per(Settings.pager.per_page)
-    end
+    @events = policy_scope(Event)
+                .includes(:items)
+                .page(params[:page])
+                .per(Settings.pager.per_page)
   end
 
   # GET /events/1 or /events/1.json
   def show
     authorize @event
-    # @comments = sort_comments(@event.comments)
-    @comments = @event.comments.root.self_and_descendants.order(:lft)
+    @comments = @event.comments&.root&.self_and_descendants&.order(:lft)
   end
 
   # GET /events/new
