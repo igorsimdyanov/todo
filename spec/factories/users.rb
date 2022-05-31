@@ -41,6 +41,7 @@ FactoryBot.define do
     role { create(:role) }
 
     factory :admin do
+      role { create(:role, name: 'Администратор', code: :admin ) }
       after(:create) do |user|
         def user.admin?
           true
