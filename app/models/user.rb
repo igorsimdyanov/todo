@@ -72,7 +72,7 @@ class User < ApplicationRecord
   act_as_rolable
 
   def admin?
-    role&.name == 'admin'
+    role&.code == 'admin'
   end
 
   def description

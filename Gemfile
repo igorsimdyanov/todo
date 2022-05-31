@@ -49,6 +49,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'capybara-screenshot'
 end
 
 group :development do

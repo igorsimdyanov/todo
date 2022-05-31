@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 require 'simplecov'
+require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
+
+Capybara.register_driver :selenium_chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.javascript_driver = :selenium_chrome
 
 SimpleCov.start 'rails' do
   add_filter '/config/'
