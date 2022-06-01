@@ -52,6 +52,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'capybara-screenshot'
+  gem 'database_cleaner-active_record'
 end
 
 group :development do
