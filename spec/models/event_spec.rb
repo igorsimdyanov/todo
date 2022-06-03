@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: events
@@ -26,7 +28,7 @@ RSpec.describe Event, type: :model do
 
   context 'в невалидном состоянии' do
     let(:event) { build(:event_wrong) }
-    
+
     it 'когда пустое название' do
       expect(event).not_to be_valid
       error_message = 'Name обязательно для заполнения'

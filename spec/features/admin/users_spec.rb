@@ -2,6 +2,7 @@
 
 RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
   let(:user) { create :admin }
+
   before do
     visit new_user_session_path
     fill_in 'user_email', with: user.email
@@ -46,7 +47,7 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
       fill_in 'user_password_confirmation', with: default_attr[:password]
       click_button 'button'
 
-      expect(current_path).to match /\/admin\/users\/\d+/
+      expect(page).to have_current_path(%r{/admin/users/\d+})
       expect(page).to have_content(default_attr[:name].downcase.titleize)
       expect(page).to have_content(default_attr[:email])
     end

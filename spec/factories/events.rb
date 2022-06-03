@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: events
@@ -27,7 +29,7 @@ FactoryBot.define do
     user
     finished_at { FFaker::Time.datetime }
 
-    factory :event_wrong, parent: :event do 
+    factory :event_wrong, parent: :event do
       name { nil }
       user { nil }
     end
