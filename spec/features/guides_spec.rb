@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'При обращении', driver: :selenium_chrome, js: true do
   context 'по адресу https://guides.rubyonrails.org' do
     it 'возвращается сообщение об успешной загрузке' do

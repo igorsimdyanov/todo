@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Events, type: :api do
   before do
     create(:event)
@@ -33,10 +35,10 @@ RSpec.describe Events, type: :api do
         'content' => be_an(String),
         'done' => eq(true) | eq(false),
         'user' => hash_including(
-            'id' => a_value > 0,
-            'name' => be_an(String),
-            'role' => be_an(String)
-          )
+          'id' => a_value > 0,
+          'name' => be_an(String),
+          'role' => be_an(String)
+        )
       )
     end
 
