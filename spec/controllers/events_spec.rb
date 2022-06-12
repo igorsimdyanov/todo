@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe EventsController, type: :controller do
   let(:user) { create(:user) }
   let(:event) { create(:event) }
@@ -39,3 +40,4 @@ RSpec.describe EventsController, type: :controller do
     end.to change(Event, :count).by 1
   end
 end
+# rubocop:enable Metrics/BlockLength
