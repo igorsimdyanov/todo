@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
   let(:user) { create :admin }
 
@@ -53,3 +54,4 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
