@@ -38,6 +38,7 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
     let(:role) { create :role, name: 'new_role' }
     let(:default_attr) { attributes_for :user, role: role }
 
+    # rubocop:disable RSpec/ExampleLength
     it 'успешный переход' do
       role
       visit new_admin_user_path
@@ -52,6 +53,7 @@ RSpec.describe Admin::UsersController, driver: :selenium_chrome, js: true do
       expect(page).to have_content(default_attr[:name].downcase.titleize)
       expect(page).to have_content(default_attr[:email])
     end
+    # rubocop:enable RSpec/ExampleLength
   end
 end
 # rubocop:enable Metrics/BlockLength
