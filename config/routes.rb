@@ -2,7 +2,7 @@
 require 'resque/server'
 
 Rails.application.routes.draw do
-  devise_for :users #, ActiveAdmin::Devise.config
+  devise_for :users
   mount RootApi => '/'
   mount Resque::Server.new, at: '/resque'
   post :toggle, to: 'locales#toggle'
