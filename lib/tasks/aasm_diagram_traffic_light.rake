@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :aasm_diagram do
   desc 'Генерация png-диаграммы для модели TrafficLight'
   task traffic_light: :environment do
