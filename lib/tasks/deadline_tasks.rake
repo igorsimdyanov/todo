@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :deadline_tasks do
   desc 'Пометка просроченных задача выполнеными'
   task cleanup: :environment do
