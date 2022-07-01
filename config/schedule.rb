@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 set :environment, ENV['RAILS_ENV']
 set :output, error: 'log/cron_error.log', standart: 'log/cron.log'
 set :chronic_options, hours24: true
