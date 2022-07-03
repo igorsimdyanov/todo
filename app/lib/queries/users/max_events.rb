@@ -1,19 +1,25 @@
-class Queries::Users::MaxEvents
-  include Callable
-  extend Dry::Initializer
+# frozen_string_literal: true
 
-  param :max_count, default: proc { 3 }
+module Queries
+  module Users
+    class MaxEvents
+      include Callable
+      extend Dry::Initializer
 
-  def call
-    User.where(id: user_ids)
-  end
+      param :max_count, default: proc { 3 }
 
-  private
+      def call
+        User.where(id: user_ids)
+      end
 
-  def user_ids
-    Event.group(:user_id)
-         .count
-         .max_by(max_count) { |_user_id, count| count }
-         .map(&:first)
+      private
+
+      def user_ids
+        Event.group(:user_id)
+             .count
+             .max_by(max_count) { |_user_id, count| count }
+             .map(&:first)
+      end
+    end
   end
 end
