@@ -212,7 +212,8 @@ ActiveAdmin.setup do |config|
   # To load a stylesheet:
   #   config.register_stylesheet 'my_stylesheet.css'
   #
-  # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
+  # You can provide an options hash for more control,
+  # which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
@@ -295,7 +296,8 @@ ActiveAdmin.setup do |config|
   #
   # config.include_default_association_filters = true
 
-  # config.maximum_association_filter_arity = 256 # default value of :unlimited will change to 256 in a future version
+  # config.maximum_association_filter_arity = 256
+  # default value of :unlimited will change to 256 in a future version
   # config.filter_columns_for_large_association = [
   #    :display_name,
   #    :full_name,
