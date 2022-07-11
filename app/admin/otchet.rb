@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 ActiveAdmin.register_page 'Отчет' do
   action_item :export_users do
     link_to 'Статистика', admin_otchet_report_path, method: :post
@@ -40,3 +41,4 @@ ActiveAdmin.register_page 'Отчет' do
     render partial: 'form'
   end
 end
+# rubocop:enable Metrics/BlockLength
