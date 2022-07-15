@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 ActiveAdmin.register Event do
   menu priority: 2
 
@@ -46,3 +47,4 @@ ActiveAdmin.register Event do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
