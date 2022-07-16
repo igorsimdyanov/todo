@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Contracts
   class Unit < Contracts::Application
     def self.call(options)
