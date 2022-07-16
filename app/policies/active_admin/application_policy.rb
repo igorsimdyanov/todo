@@ -1,67 +1,71 @@
-class ActiveAdmin::ApplicationPolicy
-  attr_reader :user, :record
+# frozen_string_literal: true
 
-  def initialize(user, record)
-    @user = user
-    @record = record
-  end
+module ActiveAdmin
+  class ApplicationPolicy
+    attr_reader :user, :record
 
-  def index?
-    user.admin?
-  end
-
-  def report?
-    user.admin?
-  end
-
-  def download?
-    user.admin?
-  end
-
-  def upload?
-    user.admin?
-  end
-
-  def show?
-    user.admin?
-  end
-
-  def read?
-    user.admin?
-  end
-
-  def create?
-    user.admin?
-  end
-
-  def new?
-    create?
-  end
-
-  def update?
-    user.admin?
-  end
-
-  def edit?
-    update?
-  end
-
-  def destroy?
-    user.admin?
-  end
-
-  class Scope
-    def initialize(user, scope)
+    def initialize(user, record)
       @user = user
-      @scope = scope
+      @record = record
     end
 
-    def resolve
-      scope.all
+    def index?
+      user.admin?
     end
 
-    private
+    def report?
+      user.admin?
+    end
 
-    attr_reader :user, :scope
+    def download?
+      user.admin?
+    end
+
+    def upload?
+      user.admin?
+    end
+
+    def show?
+      user.admin?
+    end
+
+    def read?
+      user.admin?
+    end
+
+    def create?
+      user.admin?
+    end
+
+    def new?
+      create?
+    end
+
+    def update?
+      user.admin?
+    end
+
+    def edit?
+      update?
+    end
+
+    def destroy?
+      user.admin?
+    end
+
+    class Scope
+      def initialize(user, scope)
+        @user = user
+        @scope = scope
+      end
+
+      def resolve
+        scope.all
+      end
+
+      private
+
+      attr_reader :user, :scope
+    end
   end
 end
