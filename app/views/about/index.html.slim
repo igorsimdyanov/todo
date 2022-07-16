@@ -1,17 +1,12 @@
-h1
-  = t(:about)
-p<>
-  = t(:content)
-p
-  = t(:current_date)
-  =< l Date.current
-p
-  =< session[:about_count]
-  =< t('activerecord.models.visit', count: session[:about_count])
-p
-  = User.count
-  =< t('activerecord.models.user', count: User.count)
-p
-  = link_to t(:main_page), root_path
-  - link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
-  =< link_to link_name, toggle_path, method: :post
+- cache [:about, session[:locale], User.count], expires_in: Settings.cache.about do
+  h1
+    = t(:about)
+  p<>
+    = t(:content)
+  p
+    = User.count
+    =< t('activerecord.models.user', count: User.count)
+  p
+    = link_to t(:main_page), root_path
+    - link_name = session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
+    =< link_to link_name, toggle_path, method: :post
