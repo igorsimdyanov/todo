@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register_page 'Импорт/экспорт пользователей' do
   page_action :download, method: :post do
     send_data Services::Users::Download.call,
@@ -23,6 +25,6 @@ ActiveAdmin.register_page 'Импорт/экспорт пользователе�
         f.file_field :excel, as: :file
         f.button 'Загрузить'
       end
-    end    
+    end
   end
 end
