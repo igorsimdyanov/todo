@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register User do
   menu priority: 1, label: 'Пользователи'
   permit_params :email, :name, :active, :role_id, :password, :password_confirmation
@@ -27,7 +29,7 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs do
-      f.semantic_errors *f.object.errors.keys
+      f.semantic_errors(*f.object.errors.keys)
       f.input :email
       f.input :name
       f.input :active
@@ -41,5 +43,4 @@ ActiveAdmin.register User do
       f.action :submit, label: 'Отправить', as: :button
     end
   end
-
 end
