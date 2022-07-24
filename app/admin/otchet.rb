@@ -11,22 +11,27 @@ ActiveAdmin.register_page 'Отчет' do
       report = params[:report_form]
       return [nil, nil] unless report
 
-      from_date = Time.zone.local(
+      [from_date(report), to_date(report)]
+    end
+
+    def from_date(report)
+      Time.zone.local(
         report['from(1i)'].to_i,
         report['from(2i)'].to_i,
         report['from(3i)'].to_i,
         report['from(4i)'].to_i,
         report['from(5i)'].to_i
       )
-      to_date = Time.zone.local(
+    end
+
+    def to_date(report)
+      Time.zone.local(
         report['to(1i)'].to_i,
         report['to(2i)'].to_i,
         report['to(3i)'].to_i,
         report['to(4i)'].to_i,
         report['to(5i)'].to_i
       )
-
-      [from_date, to_date]
     end
   end
 
