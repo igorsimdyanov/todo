@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     user.admin? ? admin_root_path : root_path
   end
 
-  def access_denied(exception)
+  def access_denied(_exception)
     sign_out
     redirect_to root_path
   end
