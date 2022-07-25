@@ -51,9 +51,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'webdrivers'
 end
 
 group :development do
