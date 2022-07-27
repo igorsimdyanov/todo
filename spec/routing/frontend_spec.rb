@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
 RSpec.describe 'Роутинг', type: :routing do
   it 'GET /about соответствует about#index' do
     expect(get: '/about').to route_to('about#index')
@@ -44,4 +43,3 @@ RSpec.describe 'Роутинг', type: :routing do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength
