@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 ActiveAdmin.register User do
   menu priority: 1, label: 'Пользователи'
   permit_params :email, :name, :active, :role_id, :password, :password_confirmation
@@ -44,3 +45,4 @@ ActiveAdmin.register User do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
