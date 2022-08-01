@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
 RSpec.describe Events, type: :api do
   before do
     create(:event)
@@ -54,4 +53,3 @@ RSpec.describe Events, type: :api do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength
