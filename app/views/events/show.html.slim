@@ -22,7 +22,7 @@
             td = i + 1
             td = item.name
 
-  - if @comments.count > 0
+  - if @comments && @comments.count > 0
     p
       strong Comments
       - Comment.each_with_level(@comments) do |comment, level|
