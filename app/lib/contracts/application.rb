@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Contracts
   class Application < Dry::Validation::Contract
     config.messages.default_locale = Rails.application.config.i18n.default_locale
