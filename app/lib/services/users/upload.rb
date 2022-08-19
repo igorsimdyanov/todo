@@ -9,6 +9,7 @@ module Services
         new.call(*args)
       end
 
+      # rubocop:disable Metrics/AbcSize
       def call(path)
         xlsx = Roo::Spreadsheet.open(path, extension: :xlsx)
         xlsx.default_sheet = xlsx.sheets.first
@@ -20,6 +21,7 @@ module Services
           User.find(id).update(name: name, email: email, role_id: roles[code])
         end
       end
+      # rubocop:enable Metrics/AbcSize
 
       private
 
