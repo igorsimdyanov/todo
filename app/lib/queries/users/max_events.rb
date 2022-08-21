@@ -17,4 +17,5 @@ module Queries::Users::MaxEvents
          .count
          .max_by(max_count) { |_user_id, count| count }
          .map(&:first)
+  end
 end
